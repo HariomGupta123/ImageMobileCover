@@ -146,7 +146,7 @@ export default function Home() {
           </div>
         </MaxWidthWrapper>
         <div className="pt-16">
-          <Reviews/>
+       <Reviews/>
 
         </div>
 
