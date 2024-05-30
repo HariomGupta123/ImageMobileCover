@@ -11,7 +11,7 @@ import user5 from "../../public/user/user-5.jpg"
 import yourImage from "../../public/your-image.png"
 import LineImage from "../../public/line.png"
 import  arrow  from "../../public/arrow.png"
-import horsephone from "../../public/clearphone.png"
+import horsephone from "../../public/horse_phone.jpg"
 import horse from "../../public/horse.jpg"
 import testimonials1 from "../../public/Testimonials/1.jpg"
 import Image from "next/image";
