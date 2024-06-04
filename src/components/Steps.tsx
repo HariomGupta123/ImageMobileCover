@@ -27,7 +27,7 @@ export default function Steps() {
             {STEPS.map((step, i) => {
                 const isCurrent = pathname.endsWith(step.url);
                 const isCompleted = STEPS.slice(i + 1).some((step) => pathname.endsWith(step.url))
-                const imgPath = `snake-${i + 1}.png`
+                const imgPath = `/snake-${i + 1}.png`
                 return (
                     <li key={step.name} className='relative overflow-hidden lg:flex-1'>
                         <div>
@@ -45,7 +45,7 @@ export default function Steps() {
                                     'flex items-center px-6 py-4 text-sm font-medium'
                                 )}>
                                 <span className='flex-shrink-0'>
-                                    <img
+                                    <Image
                                         src={imgPath}
                                         className={cn(
                                             'flex h-20 w-20 object-contain items-center justify-center',
@@ -55,6 +55,8 @@ export default function Steps() {
                                             }
                                         )}
                                         alt='step imag'
+                                        width={20}
+                                        height={20}
                                     />
                                 </span>
 
