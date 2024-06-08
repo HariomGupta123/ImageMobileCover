@@ -16,6 +16,7 @@ import { BASE_PRICE } from "@/config/products";
 import { resolve } from "path";
 import { useUploadThing } from "@/lib/uploadthing";
 import { useToast } from "@/components/ui/use-toast";
+import { useMutation } from "@tanstack/react-query";
 interface DesignConfiguratorProps {
     configId: string
     imageUrl: string
@@ -27,6 +28,7 @@ const DesignConfigurator = ({
     imageDimensions,
 }: { DesignConfiguratorProps }) => {
     const {toast}=useToast();
+    const {}=useMutation()
     const [options, setOptions] = useState<
         {
             color: (typeof COLORS)[number]
@@ -81,7 +83,7 @@ const DesignConfigurator = ({
                 toast({
                     title:'something went wrong',
                     description:'There was a problem saving your config ,please try again',
-                    variant:'descriptive',
+                   
                 })
 
             }
