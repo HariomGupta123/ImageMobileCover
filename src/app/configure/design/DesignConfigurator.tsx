@@ -13,10 +13,12 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Check, ChevronsUpDown } from "lucide-react";
 import { BASE_PRICE } from "@/config/products";
-import { resolve } from "path";
 import { useUploadThing } from "@/lib/uploadthing";
 import { useToast } from "@/components/ui/use-toast";
 import { useMutation } from "@tanstack/react-query";
+import {saveConfig as _saveConfig ,saveConfigArg } from "./actions";
+import { useRouter } from "next/navigation";
+
 interface DesignConfiguratorProps {
     configId: string
     imageUrl: string
@@ -27,8 +29,26 @@ const DesignConfigurator = ({
     imageUrl,
     imageDimensions,
 }: { DesignConfiguratorProps }) => {
+  
     const {toast}=useToast();
-    const {}=useMutation()
+    const route=useRouter();
+    const {mutate:saveConfig,isPending}=useMutation({
+        mutationKey:["save-config"],
+        mutationFn:async(args:saveConfigArg)=>{
+            await Promise.all([saveConfiguration(),_saveConfig(args)])
+        },
+        onError:()=>{
+           toast({
+                    title:'something went wrong',
+                    description:'There was a problem saving your config ,please try again',
+                   varient :"destructive"
+                })
+        },
+        onSuccess:()=>{
+            route.push(`/configure/preview?id=${configId}`)
+        }
+    })
+    
     const [options, setOptions] = useState<
         {
             color: (typeof COLORS)[number]
@@ -300,7 +320,13 @@ const DesignConfigurator = ({
                             <p className='font-medium whitespace-nowrap'>
                                 {formatPrice((BASE_PRICE + options.finish.price + options.material.price)/100)}
                             </p>
-                            <Button  size="sm" onClick={()=>saveConfiguration()} > Contineu <ArrowRight className="h-4 w-4 ml-1.5 inline"/></Button>
+                            <Button  size="sm" onClick={()=>(saveConfig({
+                                configId,
+                                color:options.color.value,
+                                finish:options.finish.value,
+                                material:options.material.value,
+                                model:options.model.value
+                            }))} > Contineu <ArrowRight className="h-4 w-4 ml-1.5 inline"/></Button>
                         </div>
                     </div>
                 </div>
