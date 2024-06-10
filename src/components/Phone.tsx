@@ -19,7 +19,7 @@ export default function Phone({imgSrc,className,dark=false,...props}:PhoneProps)
           <Image key={index} src={src} alt={`Phone ${index}`}   />
         ))
       ) : (
-        <Image src={imgSrc} alt="Phone"  />
+        <Image src={imgSrc} className='object-cover min-h-full min-w-full' width={100} height={100}  alt="Phone"  />
       )}</div>
     </div>
   )
