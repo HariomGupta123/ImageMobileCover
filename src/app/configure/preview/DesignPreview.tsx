@@ -5,12 +5,18 @@ import { BASE_PRICE, PRODUCT_PRICES } from "@/config/products";
 import { cn, formatPrice } from "@/lib/utils";
 import { COLORS, MODELS } from "@/validators/option-validator";
 import { Configuration } from "@prisma/client";
+import { useMutation } from "@tanstack/react-query";
 import { ArrowRight } from "lucide-react";
-import { useEffect, useState } from "react"
+import { useEffect, useState, useTransition } from "react"
 import Confetti from "react-dom-confetti"
+import { createCheckoutSession } from "./actions";
+import { useRouter } from "next/router";
+import { useToast } from "@/components/ui/use-toast";
 
 export default function DesignPreview({ configuration }: { configuration: Configuration }) {
     const [showConfetti, setShowConfetti] = useState(false);
+    const route=useRouter()
+    const {toast}=useToast()
     useEffect(() => (setShowConfetti(true)), [])
     const { color, model, finish, material } = configuration
     const tw = COLORS.find((supportedColor) => supportedColor.value === color)?.tw
@@ -21,6 +27,14 @@ export default function DesignPreview({ configuration }: { configuration: Config
     if (material === 'polycarbonate')
         totalPrice += PRODUCT_PRICES.material.polycarbonate
     if (finish === 'textured') totalPrice += PRODUCT_PRICES.finish.textured
+    const {}=useMutation({
+        mutationKey:['get-checkedout-session'],
+        mutationFn:createCheckoutSession,
+        onSuccess:({url})=>{
+            if(url) route.push(url)
+                else throw new Error('Unable to retrieve payment URL')
+        }
+    })
     return (
         <>
             <div aria-hidden='true'
