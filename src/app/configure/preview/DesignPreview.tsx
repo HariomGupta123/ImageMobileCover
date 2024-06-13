@@ -10,13 +10,14 @@ import { ArrowRight } from "lucide-react";
 import { useEffect, useState, useTransition } from "react"
 import Confetti from "react-dom-confetti"
 import { createCheckoutSession } from "./actions";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { useToast } from "@/components/ui/use-toast";
 
 export default function DesignPreview({ configuration }: { configuration: Configuration }) {
     const [showConfetti, setShowConfetti] = useState(false);
     const route=useRouter()
     const {toast}=useToast()
+    const {id}=configuration
     useEffect(() => (setShowConfetti(true)), [])
     const { color, model, finish, material } = configuration
     const tw = COLORS.find((supportedColor) => supportedColor.value === color)?.tw
@@ -27,12 +28,19 @@ export default function DesignPreview({ configuration }: { configuration: Config
     if (material === 'polycarbonate')
         totalPrice += PRODUCT_PRICES.material.polycarbonate
     if (finish === 'textured') totalPrice += PRODUCT_PRICES.finish.textured
-    const {}=useMutation({
+    const {mutate:createPaymentSeason}=useMutation({
         mutationKey:['get-checkedout-session'],
         mutationFn:createCheckoutSession,
         onSuccess:({url})=>{
             if(url) route.push(url)
                 else throw new Error('Unable to retrieve payment URL')
+        },
+        onError:()=>{
+            toast({
+                title:'something went wrong',
+                description:'there was an error on our end .Please try again.',
+                variant:'destructive',
+            })
         }
     })
     return (
@@ -110,7 +118,8 @@ export default function DesignPreview({ configuration }: { configuration: Config
                             </div>
                         </div>
                         <div className='mt-8 flex justify-end pb-12'>
-                            <Button disabled={true} isLoading ={true} loadingText="loading" className='px-4 sm:px-6 lg:px-8'>
+                            <Button  onClick={()=>createPaymentSeason({configId: configuration.id})}
+                           className='px-4 sm:px-6 lg:px-8'>
                                 check out  <ArrowRight className='h-4 w-4 ml-1.5 inline' />
                             </Button>
 
