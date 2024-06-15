@@ -20,7 +20,7 @@ export default function DesignPreview({ configuration }: { configuration: Config
     const router = useRouter()
     const { toast } = useToast()
     const { id } = configuration
-    const { user } = useKindeBrowserClient
+    const { user } = useKindeBrowserClient()
     const [isLoginModelOpen, setIsLoginModelOpen] = useState<boolean>(false)
     useEffect(() => (setShowConfetti(true)), [])
     const { color, model, finish, material } = configuration
