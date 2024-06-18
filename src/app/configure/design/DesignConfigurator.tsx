@@ -41,7 +41,7 @@ const DesignConfigurator = ({
            toast({
                     title:'something went wrong',
                     description:'There was a problem saving your config ,please try again',
-                   varient :"destructive"
+                 
                 })
         },
         onSuccess:()=>{
