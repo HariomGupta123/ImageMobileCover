@@ -28,7 +28,7 @@ const DesignConfigurator = ({
     configId,
     imageUrl,
     imageDimensions,
-}: { DesignConfiguratorProps }) => {
+}: DesignConfiguratorProps ) => {
   
     const {toast}=useToast();
     const route=useRouter();
