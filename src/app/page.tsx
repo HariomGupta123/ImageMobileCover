@@ -1,19 +1,7 @@
 
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import { ArrowRight, Check, Star } from "lucide-react";
-import snake1 from "../../public/snake-1.png"
-import snake2 from "../../public/snake-2.png"
-import user1 from "../../public/user/user-1.png"
-import user2 from "../../public/user/user-2.png"
-import user3 from "../../public/user/user-3.png"
-import user4 from "../../public/user/user-4.jpg"
-import user5 from "../../public/user/user-5.jpg"
-import yourImage from "../../public/your-image.png"
-import LineImage from "../../public/line.png"
-import  arrow  from "../../public/arrow.png"
-import horsephone from "../../public/horse_phone.jpg"
-import horse from "../../public/horse.jpg"
-import testimonials1 from "../../public/Testimonials/1.jpg"
+
 import Image from "next/image";
 import Phone from "@/components/Phone";
 import { Icons } from "@/components/Icons";
@@ -28,7 +16,7 @@ export default function Home() {
           <div className="col-span-2 px-6 lg:px-0 lg:pt-6 ">
             <div className=" mx-auto relative text-center lg:text-left flex flex-col items-center lg:items-start">
               <div className="absolute w-28 left-0 -top-20 hidden lg:block  ">
-                <Image src={snake1} className="w-full" alt="/" />
+                <Image src='/snake-1.png' className="w-full" alt="/" width={100} height={100} />
               </div>
               <h1 className="relateive w-fit tracking-tight text-balance mt-16 font-bold !leading-tight text-gray-900 text-5xl md:text-6xl lg:text-7xl ">your Image on a <span className="bg-green-600 px-2 text-white">custom</span>Phone case</h1>
               <p className="mt-8 text-lg lg:pr-10 max-w-prose text-center lg:text-left text-balance md:text-wrap "> capture your favorite memories with your own,<span className="font-semibold">one-of-one</span>
@@ -52,11 +40,12 @@ export default function Home() {
               </ul>
               <div className="mt-12 flex flex-col sm:flex-row items-center sm:items-start gap-5 ">
                 <div className="flex -space-x-4 ">
-                  <Image className="inline-block h-10 w-10 rounded-full ring-2 ring-slate-100 " src={user1} alt="user image" />
-                  <Image className="inline-block h-10 w-10 rounded-full ring-2 ring-slate-100 " src={user2} alt="user image" />
-                  <Image className="inline-block h-10 w-10 rounded-full ring-2 ring-slate-100 " src={user3} alt="user image" />
-                  <Image className="inline-block h-10 w-10 rounded-full ring-2 ring-slate-100 " src={user4} alt="user image" />
-                  <Image className="inline-block h-10 w-10 rounded-full ring-2 ring-slate-100 " src={user5} alt="user image" />
+                  <Image className="inline-block h-10 w-10 rounded-full ring-2 ring-slate-100 " src='/user/user-1.png' width={100} height={100} alt="user image" />
+                  <Image className="inline-block h-10 w-10 rounded-full ring-2 ring-slate-100 " src='/user/user-2.png' width={100} height={100} alt="user image" />
+                  <Image className="inline-block h-10 w-10 rounded-full ring-2 ring-slate-100 " src='/user/user-3.png' width={100} height={100} alt="user image" />
+                  <Image className="inline-block h-10 w-10 rounded-full ring-2 ring-slate-100 " src='/user/user-4.jpg' width={100} height={100} alt="user image" />
+                  <Image className="inline-block h-10 w-10 rounded-full ring-2 ring-slate-100 " src='/user/user-5.jpg' width={100} height={100} alt="user image" />
+
 
                 </div>
 
@@ -77,9 +66,9 @@ export default function Home() {
           </div>
           <div className="col-span-full lg:col-span-1 w-full flex justify-center px-8 sm:px-16 md:px-0 mt-32 lg:mx-0 lg:mt-20 h-fit ">
             <div className=" relative md:max-w-xl">
-              <Image src={yourImage} className="absolute w-40 lg:w-52 left-56 -top-20 select-none hidden sm:block lg:hidden xl:block" alt="/" />
-              <Image src={LineImage} alt="" className="absolute w-20 -left-6 -bottom-6 select-none" />
-              <Phone className="w-64" imgSrc={testimonials1} />
+              <Image src='/your-image.png' width={100} height={100} className="absolute w-40 lg:w-52 left-56 -top-20 select-none hidden sm:block lg:hidden xl:block" alt="/" />
+              <Image src='/line.png' alt="" width={100} height={100} className="absolute w-20 -left-6 -bottom-6 select-none" />
+              <Phone className="w-64" imgSrc='/Testimonials/1.jpg' />
             </div>
           </div>
         </MaxWidthWrapper>
@@ -91,7 +80,7 @@ export default function Home() {
             <h2 className="order-1 mt-2 tracking-tight text-center text-balance !leading-tight font-bold text-5xl md:text-6xl text-gray-900">
               what  our <span className="relative px-2">customers <Icons.underline className="hidden sm:block pointer-events-none absolute inset-x-0 -bottom-6 text-green-500" /></span>say
             </h2>
-            <Image src={snake2} alt="" className="w-24 order-0 lg:order-2" />
+            <Image src='/snake-2.png' width={100} height={100} alt="snake-2" className="w-24 order-0 lg:order-2" />
           </div>
           <div className="mx-auto grid max-w-2xl grid-cols-1 px-4 lg:mx-0 lg:max-w-none lg:grid-cols-2 gap-y-16">
             <div className="flex flex-auto flex-col gap-4 lg:pr-8 xl:pr-20">
@@ -110,7 +99,7 @@ export default function Home() {
                 </p>
               </div>
               <div className="flex gap-4 mt-2">
-                <Image className="rounded-full h-12 w-12 object-cover" src={user1} alt="user1" />
+                <Image className="rounded-full h-12 w-12 object-cover" src='/user/user-1.png' width={100} height={100} alt="user1" />
                 <div className="flex flex-col">
                   <p className="font-semibold"> Roshan chy</p>
                   <div className="flex gap-1.5 items-center text-zinc-600">
@@ -137,9 +126,9 @@ export default function Home() {
                 </p>
               </div>
               <div className="flex gap-4 mt-2">
-                <Image className="rounded-full h-12 w-12 object-cover" src={user1} alt="user1" />
+                <Image className="rounded-full h-12 w-12 object-cover" src='/user/user-2.png' width={100} height={100} alt="user2" />
                 <div className="flex flex-col">
-                  <p className="font-semibold"> Sankar kharel</p>
+                  <p className="font-semibold"> Santoshi</p>
                   <div className="flex gap-1.5 items-center text-zinc-600">
                     <Check className="h-4 w-4 stroke-[3px] text-green-600" />
                     <p className="text-sm">Verified Purchase</p>
@@ -170,13 +159,13 @@ export default function Home() {
           </div>
           <div className="mx-outo max-w-6xl px-6 lg:px-8">
             <div className="relative flex flex-col items-center md:grid grid-cols-2 gap-40">
-              <Image src={arrow} alt="" className="absolute top-[25rem] md:top-1/2 -translate-y-1/2 z-10 left-1/2 -translate-x-1/2 rotate-90 md:rotate-0" />
+              <Image src="/arrow.png" alt="" width={100} height={100} className="absolute top-[25rem] md:top-1/2 -translate-y-1/2 z-10 left-1/2 -translate-x-1/2 rotate-90 md:rotate-0" />
               <div className="relative h-80 md:h-full w-full md:justify-self-end max-w-sm rounded-xl bg-gray-900/5 ring-inset ring-gray-900 lg:rounded-2xl">
 
-                <Image src={horse} alt="" className="rounded-md object-cover bg-white shadow-2xl ring-1 ring-gray-900/10 h-full w-full" />
+                <Image src='/horse_phone.jpg' width={100} height={100} alt="" className="rounded-md object-cover bg-white shadow-2xl ring-1 ring-gray-900/10 h-full w-full" />
 
               </div>
-              <Phone className="w-60" imgSrc={horsephone}/>
+              <Phone className="w-60"  imgSrc='/horse_phone.jpg'/>
 
             </div>
 

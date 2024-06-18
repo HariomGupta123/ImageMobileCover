@@ -4,7 +4,7 @@ import Image from 'next/image'
 import phonetemplatedarkedges from "../../public/phone-template-dark-edges.png"
 import phonetemplatewhiteedges from "../../public/phone-template-white-edges.png"
 interface PhoneProps extends HTMLAttributes<HTMLDivElement>{
-    imgSrc: string | string[];
+    imgSrc: string ;
     dark?:boolean
 }
 export default function Phone({imgSrc,className,dark=false,...props}:PhoneProps) {

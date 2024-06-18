@@ -36,7 +36,7 @@ function splitArray<T>(array: Array<T>, numParts: number) {
 
 
 interface ReviewProps extends HTMLAttributes<HTMLDivElement> {
-  imgSrc: string
+  imgSrc: string;
 }
 
 function Review({ imgSrc, className, ...props }: ReviewProps) {
