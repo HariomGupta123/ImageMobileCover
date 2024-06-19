@@ -14,7 +14,7 @@ export async function POST(req: Request) {
         const event = stripe.webhooks.constructEvent(
             body,
              signature,
-              process.env.STRIPE_WEBHOOKS_KEY!);
+              process.env.STRIPE_WEBHOOKS_SECRETE!);
         if (event.type === 'checkout.session.completed') {
             if (!event.data.object.customer_details?.email) {
                 throw new Error('Missing user email')
