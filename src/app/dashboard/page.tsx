@@ -6,6 +6,7 @@ import { db } from "@/db";
 import { formatPrice } from "@/lib/utils";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { notFound } from "next/navigation";
+import StatusDropdown from "./StatusDropdown";
 
 const Page = async () => {
     const { getUser } = getKindeServerSession()
@@ -15,7 +16,7 @@ const Page = async () => {
     }
     const orders = await db.order.findMany({
         where: {
-            isPaid: true,
+            isPaid: false,
             createdAt: {
                 gte: new Date(new Date().setDate(new Date().getDate() - 7)),
             },
@@ -31,7 +32,7 @@ const Page = async () => {
 
     const lastWeekSum = await db.order.aggregate({
         where: {
-            isPaid: true,
+            isPaid: false,
             createdAt: {
                 gte: new Date(new Date().setDate(new Date().getDate() - 7)),
             },
@@ -42,7 +43,7 @@ const Page = async () => {
     })
     const lastMonthSum = await db.order.aggregate({
         where: {
-            isPaid: true,
+            isPaid: false ,
             createdAt: {
                 gte: new Date(new Date().setDate(new Date().getDate() - 30)),
             },

@@ -1,10 +1,12 @@
-import  { Suspense } from 'react'
+import { Suspense } from 'react'
 import ThankYou from './ThankYou'
 
-export default function page() {
+const Page = () => {
   return (
-   <Suspense>
-    <ThankYou/>
-   </Suspense>
+    <Suspense>
+      <ThankYou />
+    </Suspense>
   )
 }
+
+export default Page
