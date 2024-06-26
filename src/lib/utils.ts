@@ -40,6 +40,6 @@ export function constructMetadata({
       creator:'@hariom',
     },
     icons,
-    metadataBase:new URL("https://image-mobile-cover-p244.vercel.app/")
+    metadataBase:new URL("https://image-mobile-cover.vercel.app/")
   }
 }
