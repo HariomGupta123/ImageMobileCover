@@ -83,7 +83,7 @@ const DesignPreview = ({ configuration }: { configuration: Configuration }) => {
                 <div className='md:col-span-4 lg:col-span-3 md:row-span-2 md:row-end-2'>
                     <Phone
                         className={cn(`bg-${tw}`, "max-w-[150px] md:max-w-full")}
-                        imgSrc={configuration.croppedImageUrl!}
+                        imgSrc={configuration.imageUrl}
                     />
                 </div>
 
@@ -166,6 +166,7 @@ const DesignPreview = ({ configuration }: { configuration: Configuration }) => {
                     </div>
                 </div>
             </div>
+            {/* <Image src={configuration.croppedImageUrl!} alt='image' fill/> */}
         </>
     )
 }
