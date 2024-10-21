@@ -5,7 +5,7 @@ import Footer from '@/components/Footer'
 import { Toaster } from '@/components/ui/toaster'
 import Providers from '@/components/Providers'
 import { constructMetadata } from '@/lib/utils'
-import NavBar from '@/components/Navbar'
+import NavBar from '../components/NavBar'
 
 const recursive = Recursive({ subsets: ['latin'] })
 
